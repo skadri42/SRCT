@@ -70,46 +70,121 @@
     margin-bottom: 10px;
   }
   
-  /* Services */
   .services {
-    padding: 60px 0;
-    background: #fff;
-    text-align: center;
-  }
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #333;
+}
+
+.service-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.service {
+  background: #ffffff;
+  padding: 30px 25px;
+  width: 280px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.service:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.service .icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #007BFF;
+}
+
+.service h3 {
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.service p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
   
-  .services h2 {
-    margin-bottom: 40px;
-  }
-  
-  .service-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  .service {
-    background: #f1f1f1;
-    padding: 20px;
-    flex: 1 1 250px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-  
-  .service h3 {
-    margin-bottom: 10px;
-  }
-  
-  /* Réalisations */
-  .realisations {
-    padding: 60px 0;
-    background: #eef2f5;
-    text-align: center;
-  }
-  
-  .realisations h2 {
-    margin-bottom: 20px;
-  }
+.realisations {
+  padding: 80px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.realisations h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.realisations p {
+  margin-bottom: 40px;
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Grille responsive */
+.realisations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.realisation-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.realisation-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.realisation-card img {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+.realisation-content {
+  padding: 20px;
+}
+
+.realisation-content h3 {
+  margin-bottom: 10px;
+  color: #007BFF;
+  font-size: 1.4rem;
+}
+
+.realisation-content p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+
   
   /* Footer */
   footer {
