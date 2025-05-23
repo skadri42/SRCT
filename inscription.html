@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SRCT - Connexion</title>
+  <title>SRCT - Inscription</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="login.css" />
 </head>
@@ -23,28 +23,43 @@
 
   <section class="login-section">
     <div class="container">
-      <div class="login-container">
-        <h2>Connexion</h2>
-        <form action="connexion.php" method="post" class="login-form">
+      <div class="login-container register-container">
+        <h2>Créer un compte</h2>
+        <form action="inscription.php" method="post" class="login-form">
+          <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" required>
+          </div>
+          <div class="form-group">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" required>
+          </div>
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
           </div>
           <div class="form-group">
+            <label for="telephone">Téléphone</label>
+            <input type="tel" id="telephone" name="telephone">
+          </div>
+          <div class="form-group">
             <label for="password">Mot de passe</label>
             <input type="password" id="password" name="password" required>
           </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirmer le mot de passe</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+          </div>
           <div class="form-options">
             <div class="remember-me">
-              <input type="checkbox" id="remember" name="remember">
-              <label for="remember">Se souvenir de moi</label>
+              <input type="checkbox" id="conditions" name="conditions" required>
+              <label for="conditions">J'accepte les conditions d'utilisation</label>
             </div>
-            <a href="#" class="forgot-password">Mot de passe oublié?</a>
           </div>
-          <button type="submit" class="login-btn">Se connecter</button>
+          <button type="submit" class="login-btn">S'inscrire</button>
         </form>
         <div class="register-link">
-          <p>Vous n'avez pas encore de compte? <a href="register.html">Inscrivez-vous</a></p>
+          <p>Vous avez déjà un compte? <a href="login.html">Connectez-vous</a></p>
         </div>
       </div>
     </div>

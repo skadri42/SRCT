@@ -1,4 +1,4 @@
-/* Styles spécifiques pour la page de login */
+/* Styles spécifiques pour les pages de login et d'inscription */
 
 .login-section {
   padding: 60px 0;
@@ -107,8 +107,12 @@
   font-weight: bold;
 }
 
-.register-link a:hover {
-  text-decoration: underline;
+.register-container {
+  max-width: 500px;
+}
+
+.register-container .form-group {
+  margin-bottom: 15px;
 }
 
 /* Responsive */
