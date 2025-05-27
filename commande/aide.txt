@@ -1,3 +1,17 @@
 sudo rm -rf /var/www/html
 sudo ln -s /var/www/SRCT /var/www/html
 sudo systemctl restart apache2
+
+
+
+git branch 
+: pour savoir sur quelle branche 
+
+git add . 
+: ajouter les modification a git 
+
+git commit -m "Ajout du site complet avec page de connexion/inscription" 
+: commit en local 
+
+git push origin celian 
+:push sur github les modification dans la branche celian 
