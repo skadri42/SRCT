@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SRCT - Connexion</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="login.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css">
 </head>
 <body>
   <header>
@@ -25,7 +25,7 @@
     <div class="container">
       <div class="login-container">
         <h2>Connexion</h2>
-        <form action="connexion.php" method="post" class="login-form">
+        <form action="login.php" method="post" class="login-form">
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
@@ -34,26 +34,18 @@
             <label for="password">Mot de passe</label>
             <input type="password" id="password" name="password" required>
           </div>
-          <div class="form-options">
-            <div class="remember-me">
-              <input type="checkbox" id="remember" name="remember">
-              <label for="remember">Se souvenir de moi</label>
-            </div>
-            <a href="#" class="forgot-password">Mot de passe oublié?</a>
-          </div>
           <button type="submit" class="login-btn">Se connecter</button>
         </form>
         <div class="register-link">
-          <p>Vous n'avez pas encore de compte? <a href="register.html">Inscrivez-vous</a></p>
+          <p>Pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
         </div>
       </div>
     </div>
   </section>
 
-  <footer id="contact">
+  <footer>
     <div class="container">
       <p>&copy; 2025 SRCT - Tous droits réservés</p>
-      <p>Email : contact@SRCT.com | Tel : 01 23 45 67 89</p>
     </div>
   </footer>
 </body>
