@@ -155,11 +155,56 @@ nav ul li a:hover {
   padding: 20px;
 }
 
-/* Contact */
-.contact {
-  padding: 60px 20px;
+ .contact {
+  background: #fff;
+  padding: 60px 0;
   text-align: center;
 }
+
+.contact h2 {
+  margin-bottom: 30px;
+  color: #0d47a1;
+}
+
+.contact form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+.contact label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.contact input,
+.contact textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  resize: vertical;
+}
+
+.contact button {
+  background-color: #0d47a1;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 1.1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact button:hover {
+  background-color: #094a8f;
+}
+
 
 /* Footer */
 footer {
