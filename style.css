@@ -163,7 +163,7 @@ nav ul li a:hover {
     margin-bottom: 10px;
   }
   
-  .services {
+ .services {
   padding: 80px 20px;
   background: linear-gradient(135deg, #f8f9fa, #ffffff);
   text-align: center;
@@ -242,7 +242,6 @@ nav ul li a:hover {
 .realisations h2 {
   margin-bottom: 20px;
 }
-
 /* Footer */
 footer {
   background: #222;
