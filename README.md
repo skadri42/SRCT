@@ -1,2 +1,0 @@
-# SRCT
-Site web SRCT
