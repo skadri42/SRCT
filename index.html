@@ -4,10 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="SRCT – Suivez vos projets de codage, découvrez des tutoriels et gérez efficacement votre repertoire de scripts en ligne.">
   <title>SRCT</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print"
+    onload="this.media='all'">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+  <link rel="preload" as="image" href="image/cvcelian.png">
+  <link rel="preload" as="image" href="image/thomascv.png">
+  <link rel="preload" as="image" href="image/rita.png">
 </head>
 
 <body>
@@ -158,43 +164,26 @@
       const nav = document.querySelector('nav');
       const navLinks = document.querySelectorAll('nav ul li a');
 
-      logo.addEventListener('click', function () {
-        nav.classList.toggle('active');
-        logo.classList.toggle('active');
-      });
+      // Utilisation de requestAnimationFrame pour de meilleures performances
+      function toggleMenu() {
+        requestAnimationFrame(() => {
+          nav.classList.toggle('active');
+          logo.classList.toggle('active');
+        });
+      }
+
+      logo.addEventListener('click', toggleMenu);
 
       // Fermer le menu au clic sur un lien
       navLinks.forEach(link => {
         link.addEventListener('click', function () {
-          nav.classList.remove('active');
-          logo.classList.remove('active');
+          requestAnimationFrame(() => {
+            nav.classList.remove('active');
+            logo.classList.remove('active');
+          });
         });
       });
     });
-
-    // Script existant pour l'envoi d'email
-    function sendEmail(e) {
-      e.preventDefault();
-
-      const templateParams = {
-        from_name: document.getElementById('name').value,
-        from_email: document.getElementById('email').value,
-        message: document.getElementById('message').value,
-        to_email: 'celian.durand@epitech.eu,thomas.larpin@epitech.eu,rita.riad@epitech.eu,samy.benali@epitech.eu'
-      };
-
-      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-        .then(function (response) {
-          document.getElementById('success-message').style.display = 'block';
-          document.getElementById('error-message').style.display = 'none';
-          document.getElementById('contact-form').reset();
-        }, function (error) {
-          document.getElementById('error-message').style.display = 'block';
-          document.getElementById('success-message').style.display = 'none';
-        });
-
-      return false;
-    }
   </script>
 </body>
 

@@ -7,6 +7,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -14,6 +15,8 @@ body {
   background-color: #f9f9f9;
   color: #333;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -110,7 +113,9 @@ nav ul li a:hover {
   padding: 24px 18px;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
-  transition: 0.3s cubic-bezier(.4, 2, .6, 1);
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
   max-width: 320px;
   min-width: 220px;
   flex: 1 1 260px;
@@ -119,11 +124,14 @@ nav ul li a:hover {
   align-items: center;
 }
 
-.service:hover,
-.membre:hover,
-.realisation-card:hover {
-  transform: translateY(-7px) scale(1.03);
-  box-shadow: 0 16px 32px rgba(13, 71, 161, 0.13);
+@media (hover: hover) {
+
+  .service:hover,
+  .membre:hover,
+  .realisation-card:hover {
+    transform: translateY(-7px) scale(1.03);
+    box-shadow: 0 16px 32px rgba(13, 71, 161, 0.13);
+  }
 }
 
 .service .icon {
@@ -131,32 +139,55 @@ nav ul li a:hover {
   margin-bottom: 12px;
 }
 
+.realisation-card {
+  background: #fff;
+  padding: 0;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  width: 320px;
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 350px;
+}
+
 .realisation-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
   border-radius: 10px 10px 0 0;
-  margin-bottom: 12px;
+  margin-bottom: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.realisation-card {
-  padding: 0;
-  overflow: hidden;
+  will-change: transform;
+  transform: translateZ(0);
+  display: block;
 }
 
 .realisation-content {
   padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  height: 250px;
 }
 
 .realisation-content h3 {
   font-size: 1.1rem;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .realisation-content p {
   font-size: 0.98rem;
   color: #555;
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
 }
 
 .equipe-grid {
@@ -171,6 +202,9 @@ nav ul li a:hover {
 .membre {
   text-align: center;
   flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .membre img {
@@ -436,9 +470,19 @@ footer {
   }
 
   .equipe-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    max-width: 400px;
+    gap: 1.5rem;
+    padding: 0 1rem;
+    justify-content: center;
+  }
+
+  .membre {
+    flex: 0 0 150px;
+    margin: 0 auto;
+  }
+
+  .membre img {
+    width: 120px;
+    height: 120px;
   }
 
   .mentions-content,
@@ -451,6 +495,41 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+  }
+
+  .service,
+  .membre,
+  .realisation-card {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .realisation-card {
+    margin: 10px;
+    min-height: 400px;
+    height: auto;
+    width: 100%;
+    flex: 1 1 100%;
+    max-width: none;
+  }
+
+  .realisation-card img {
+    width: 100%;
+    height: 200px;
+  }
+
+  .realisation-content {
+    height: auto;
+  }
+
+  .realisation-content h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .realisation-content p {
+    font-size: 0.9rem;
+    display: block;
   }
 }
 
@@ -467,6 +546,14 @@ footer {
 
   .contact-container {
     padding: 8px 2px;
+  }
+
+  .realisation-card {
+    min-height: 380px;
+  }
+
+  .realisation-content {
+    padding: 12px;
   }
 }
 
@@ -540,7 +627,7 @@ footer {
   }
 
   .realisation-card img {
-    height: 200px;
+    height: 180px;
   }
 
   .membre img {
@@ -559,6 +646,23 @@ footer {
 
   button {
     padding: 0.8rem 1.5rem;
+  }
+
+  .realisation-card {
+    min-height: 380px;
+  }
+
+  .realisation-content {
+    padding: 12px;
+  }
+
+  .equipe-grid {
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .membre {
+    flex: 0 0 120px;
   }
 }
 
