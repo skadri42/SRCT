@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRCT - Politique de Confidentialité</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">SRCT</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#realisations">Réalisations</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="./login.html">Connexion</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="legal-content">
+        <div class="container">
+            <h1>Politique de Confidentialité</h1>
+            <div class="legal-text">
+                <h2>1. Collecte des informations</h2>
+                <p>Nous collectons les informations que vous nous fournissez directement, notamment lorsque vous
+                    utilisez notre formulaire de contact. Ces informations peuvent inclure votre nom, votre adresse
+                    e-mail et votre message.</p>
+
+                <h2>2. Utilisation des informations</h2>
+                <p>Les informations collectées sont utilisées pour répondre à vos demandes et améliorer nos services.
+                    Nous ne partageons pas vos informations personnelles avec des tiers sans votre consentement.</p>
+
+                <h2>3. Protection des données</h2>
+                <p>Nous mettons en œuvre des mesures de sécurité appropriées pour protéger vos informations personnelles
+                    contre tout accès non autorisé, modification, divulgation ou destruction.</p>
+
+                <h2>4. Vos droits</h2>
+                <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos
+                    données personnelles. Pour exercer ces droits, vous pouvez nous contacter à l'adresse suivante :
+                    contact@srct.fr</p>
+
+                <h2>5. Cookies</h2>
+                <p>Notre site utilise des cookies pour améliorer votre expérience de navigation. Vous pouvez configurer
+                    votre navigateur pour refuser tous les cookies ou être informé lorsqu'un cookie est envoyé.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SRCT - Tous droits réservés</p>
+            <div class="footer-links">
+                <a href="mentions-legales.html">Mentions Légales</a>
+                <a href="politique-confidentialite.html">Politique de Confidentialité</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script pour le menu burger
+        document.addEventListener('DOMContentLoaded', function () {
+            const logo = document.querySelector('.logo');
+            const nav = document.querySelector('nav');
+            const navLinks = document.querySelectorAll('nav ul li a');
+
+            logo.addEventListener('click', function () {
+                nav.classList.toggle('active');
+                logo.classList.toggle('active');
+            });
+
+            // Fermer le menu au clic sur un lien
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    nav.classList.remove('active');
+                    logo.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
