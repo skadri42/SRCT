@@ -1,45 +1,49 @@
 <?php
-require_once 'connexion.php';
+// Connexion à MySQL
+$host = 'localhost';
+$dbname = 'SRCT';
+$user = 'dba';
+$password = 'ghjk'; // modifie si besoin
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nom = $_POST['nom'] ?? '';
-    $prenom = $_POST['prenom'] ?? '';
-    $email = $_POST['email'] ?? '';
-    $telephone = $_POST['telephone'] ?? '';
-    $password = $_POST['password'] ?? '';
-    $confirmPassword = $_POST['confirm-password'] ?? '';
-    $conditions = isset($_POST['conditions']);
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Erreur de connexion : " . $e->getMessage());
+}
 
-    if ($password !== $confirmPassword) {
-        die("Les mots de passe ne correspondent pas.");
-    }
+// Récupération des données
+$nom = $_POST['nom'] ?? '';
+$prenom = $_POST['prenom'] ?? '';
+$email = $_POST['email'] ?? '';
+$telephone = $_POST['telephone'] ?? '';
+$mdp = $_POST['password'] ?? '';
+$confirm = $_POST['confirm-password'] ?? '';
 
-    if (!$conditions) {
-        die("Vous devez accepter les conditions d'utilisation.");
-    }
+if ($mdp !== $confirm) {
+    die("Les mots de passe ne correspondent pas.");
+}
 
-    // Vérification de l'unicité de l'email
-    $stmt = $pdo->prepare("SELECT COUNT(*) FROM utilisateurs WHERE email = :email");
-    $stmt->execute(['email' => $email]);
-    if ($stmt->fetchColumn() > 0) {
-        die("Cet email est déjà utilisé.");
-    }
+$hashedPassword = password_hash($mdp, PASSWORD_DEFAULT);
 
-    
-
-    // Insertion en base de données
-    $stmt = $pdo->prepare("INSERT INTO utilisateurs (nom, prenom, email, telephone, mot_de_passe)
-                           VALUES (:nom, :prenom, :email, :telephone, :mot_de_passe)");
+// Insertion dans la table users
+try {
+    $sql = "INSERT INTO users (username, prenom, email, telephone, password) 
+            VALUES (:username, :prenom, :email, :telephone, :password)";
+    $stmt = $pdo->prepare($sql);
     $stmt->execute([
-        'nom' => $nom,
-        'prenom' => $prenom,
-        'email' => $email,
-        'telephone' => $telephone,
-        'mot_de_passe' => $password
+        ':username' => $nom,
+        ':prenom' => $prenom,
+        ':email' => $email,
+        ':telephone' => $telephone,
+        ':password' => $hashedPassword
     ]);
 
-    header("Location: login.html");
-    exit;
+       // Redirection vers la page login après inscription réussie
+    header("Location: login.html"); // Remplace login.php par la bonne URL
+    exit; // Important : arrêter le script après redirection
+    // header("Location: confirmation.html");
+} catch (PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
 }
 ?>
-

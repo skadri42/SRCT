@@ -1,22 +1,21 @@
 <?php
 require_once 'connexion.php';
-session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    $stmt = $pdo->prepare("SELECT * FROM utilisateurs WHERE email = :email");
+    // Vérifie si l'utilisateur existe
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
     $stmt->execute(['email' => $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && password_verify($password, $user['mot_de_passe'])) {
-        $_SESSION['utilisateur'] = $user['email'];
-        header("Location: index.html");
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['utilisateur'] = $user['username'];
+        header("Location: bienvenue.php");
         exit;
     } else {
         echo "Email ou mot de passe incorrect.";
     }
 }
 ?>
-

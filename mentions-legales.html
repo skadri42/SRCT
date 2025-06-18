@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRCT - Mentions Légales</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">SRCT</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#realisations">Réalisations</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="./login.html">Connexion</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="legal-content">
+        <div class="container">
+            <h1>Mentions Légales</h1>
+            <div class="legal-text">
+                <h2>1. Informations légales</h2>
+                <p>SRCT est une entreprise de développement web et de solutions digitales.</p>
+
+                <h2>2. Hébergement</h2>
+                <p>Ce site est hébergé par GitHub Pages.</p>
+
+                <h2>3. Propriété intellectuelle</h2>
+                <p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et
+                    la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les
+                    documents téléchargeables et les représentations iconographiques et photographiques.</p>
+
+                <h2>4. Contact</h2>
+                <p>Pour toute question concernant ces mentions légales, vous pouvez nous contacter à l'adresse suivante
+                    : contact@srct.fr</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SRCT - Tous droits réservés</p>
+            <div class="footer-links">
+                <a href="mentions-legales.html">Mentions Légales</a>
+                <a href="politique-confidentialite.html">Politique de Confidentialité</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script pour le menu burger
+        document.addEventListener('DOMContentLoaded', function () {
+            const logo = document.querySelector('.logo');
+            const nav = document.querySelector('nav');
+            const navLinks = document.querySelectorAll('nav ul li a');
+
+            logo.addEventListener('click', function () {
+                nav.classList.toggle('active');
+                logo.classList.toggle('active');
+            });
+
+            // Fermer le menu au clic sur un lien
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    nav.classList.remove('active');
+                    logo.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

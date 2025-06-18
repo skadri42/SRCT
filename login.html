@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SRCT - Connexion</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
   <header>
     <div class="container">
-      <h1>SRCT</h1>
-      <nav>
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="header-content">
+        <h1 class="logo">SRCT</h1>
+        <nav>
+          <ul>
+            <li><a href="index.php">Accueil</a></li>
+            <li><a href="index.php#services">Services</a></li>
+            <li><a href="index.php#realisations">Réalisations</a></li>
+            <li><a href="index.php#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -28,11 +34,18 @@
         <form action="login.php" method="post" class="login-form">
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required placeholder="Votre email">
           </div>
           <div class="form-group">
             <label for="password">Mot de passe</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" required placeholder="Votre mot de passe">
+          </div>
+          <div class="form-options">
+            <label class="remember-me">
+              <input type="checkbox" name="remember">
+              Se souvenir de moi
+            </label>
+            <a href="#" class="forgot-password">Mot de passe oublié ?</a>
           </div>
           <button type="submit" class="login-btn">Se connecter</button>
         </form>
@@ -46,7 +59,34 @@
   <footer>
     <div class="container">
       <p>&copy; 2025 SRCT - Tous droits réservés</p>
+      <div class="footer-links">
+        <a href="mentions-legales.html">Mentions Légales</a>
+        <a href="politique-confidentialite.html">Politique de Confidentialité</a>
+      </div>
     </div>
   </footer>
+
+  <script>
+    // Script pour le menu burger
+    document.addEventListener('DOMContentLoaded', function () {
+      const logo = document.querySelector('.logo');
+      const nav = document.querySelector('nav');
+      const navLinks = document.querySelectorAll('nav ul li a');
+
+      logo.addEventListener('click', function () {
+        nav.classList.toggle('active');
+        logo.classList.toggle('active');
+      });
+
+      // Fermer le menu au clic sur un lien
+      navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+          nav.classList.remove('active');
+          logo.classList.remove('active');
+        });
+      });
+    });
+  </script>
 </body>
+
 </html>
