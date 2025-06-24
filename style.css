@@ -1,0 +1,774 @@
+/* CSS - style.css */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+header {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  font-size: 2rem;
+  color: #0d47a1;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: #1565c0;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #0d47a1;
+}
+
+.hero {
+  padding-top: 150px;
+  background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+  color: white;
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+.services,
+.realisations,
+.equipe,
+#contact {
+  padding: 60px 0 60px 0;
+  text-align: center;
+}
+
+.service-grid,
+.equipe-grid,
+.realisations-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.service,
+.membre,
+.realisation-card {
+  background: #fff;
+  padding: 24px 18px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  max-width: 320px;
+  min-width: 220px;
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (hover: hover) {
+
+  .service:hover,
+  .membre:hover,
+  .realisation-card:hover {
+    transform: translateY(-7px) scale(1.03);
+    box-shadow: 0 16px 32px rgba(13, 71, 161, 0.13);
+  }
+}
+
+.service .icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.realisation-card {
+  background: #fff;
+  padding: 0;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  width: 320px;
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 350px;
+}
+
+.realisation-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  will-change: transform;
+  transform: translateZ(0);
+  display: block;
+}
+
+.realisation-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  height: 250px;
+}
+
+.realisation-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.realisation-content p {
+  font-size: 0.98rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.equipe-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.membre {
+  text-align: center;
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.membre img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 1rem;
+  border: 3px solid #0d47a1;
+}
+
+.membre p {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0;
+}
+
+#contact {
+  background-color: #f5f5f5;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.success-message,
+.error-message {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.contact-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.contact-container p {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.contact-container form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.contact-container form input,
+.contact-container form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #bfc9d1;
+  border-radius: 7px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.contact-container form button {
+  display: block;
+  width: 100%;
+  background-color: #0d47a1;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.contact-container form button:hover {
+  background-color: #1565c0;
+}
+
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  font-size: 0.98em;
+  letter-spacing: 1px;
+}
+
+.mentions-legales,
+.politique-confidentialite {
+  padding: 60px 0;
+}
+
+.mentions-legales h2,
+.politique-confidentialite h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #0d47a1;
+  font-size: 2rem;
+}
+
+.mentions-content,
+.politique-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mentions-content h3,
+.politique-content h3 {
+  color: #0d47a1;
+  margin: 25px 0 15px 0;
+  font-size: 1.3rem;
+}
+
+.mentions-content p,
+.politique-content p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.mentions-content ul,
+.politique-content ul {
+  list-style: disc;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.mentions-content li,
+.politique-content li {
+  margin-bottom: 8px;
+}
+
+.footer-links {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+
+  .service-grid,
+  .equipe-grid,
+  .realisations-grid {
+    gap: 18px;
+  }
+
+  .service,
+  .membre,
+  .realisation-card {
+    min-width: 180px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0.5rem 0;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+    position: relative;
+    z-index: 1001;
+  }
+
+  .logo.active {
+    color: #0d47a1;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  nav.active {
+    left: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 2rem;
+  }
+
+  nav ul li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+  }
+
+  nav.active ul li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  nav ul li a {
+    font-size: 1.2rem;
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+
+  .service-grid,
+  .equipe-grid,
+  .realisations-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .container {
+    width: 98%;
+  }
+
+  .contact-container {
+    padding: 18px 6px;
+  }
+
+  .equipe-grid {
+    gap: 1.5rem;
+    padding: 0 1rem;
+    justify-content: center;
+  }
+
+  .membre {
+    flex: 0 0 150px;
+    margin: 0 auto;
+  }
+
+  .membre img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .mentions-content,
+  .politique-content {
+    padding: 15px;
+    margin: 0 10px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .service,
+  .membre,
+  .realisation-card {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .realisation-card {
+    margin: 10px;
+    min-height: 400px;
+    height: auto;
+    width: 100%;
+    flex: 1 1 100%;
+    max-width: none;
+  }
+
+  .realisation-card img {
+    width: 100%;
+    height: 200px;
+  }
+
+  .realisation-content {
+    height: auto;
+  }
+
+  .realisation-content h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .realisation-content p {
+    font-size: 0.9rem;
+    display: block;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .service,
+  .membre,
+  .realisation-card {
+    padding: 12px 4px;
+  }
+
+  .contact-container {
+    padding: 8px 2px;
+  }
+
+  .realisation-card {
+    min-height: 380px;
+  }
+
+  .realisation-content {
+    padding: 12px;
+  }
+}
+
+/* Media Queries pour la responsivité */
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .realisations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .realisations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .equipe-grid {
+    gap: 1rem;
+  }
+
+  .membre img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .contact-container {
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .service {
+    padding: 1rem;
+  }
+
+  .realisation-card img {
+    height: 180px;
+  }
+
+  .membre img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .contact-container form {
+    padding: 1rem;
+  }
+
+  input,
+  textarea {
+    padding: 0.8rem;
+  }
+
+  button {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .realisation-card {
+    min-height: 380px;
+  }
+
+  .realisation-content {
+    padding: 12px;
+  }
+
+  .equipe-grid {
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .membre {
+    flex: 0 0 120px;
+  }
+}
+
+/* Ajustements pour le menu mobile */
+@media screen and (max-width: 768px) {
+  nav {
+    width: 100%;
+  }
+
+  nav ul {
+    padding: 0;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 0.8rem;
+  }
+}
+
+/* Ajustements pour les images */
+@media screen and (max-width: 768px) {
+  .realisation-card img {
+    height: 250px;
+  }
+}
+
+/* Ajustements pour le formulaire de contact */
+@media screen and (max-width: 768px) {
+  .contact-container {
+    margin: 1rem;
+  }
+}
+
+/* Ajustements pour le footer */
+@media screen and (max-width: 768px) {
+  footer .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+.legal-content {
+  padding-top: 150px;
+  padding-bottom: 60px;
+}
+
+.legal-content h1 {
+  text-align: center;
+  color: #0d47a1;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.legal-content .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.legal-text {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.legal-text h2 {
+  color: #0d47a1;
+  margin: 2rem 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.legal-text h2:first-child {
+  margin-top: 0;
+}
+
+.legal-text p {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .legal-content {
+    padding-top: 120px;
+  }
+
+  .legal-text {
+    padding: 1.5rem;
+  }
+
+  .legal-content h1 {
+    font-size: 2rem;
+  }
+
+  .legal-text h2 {
+    font-size: 1.3rem;
+  }
+}
