@@ -125,46 +125,59 @@
   </section>
 
   <section id="contact"> 
-  <div style="max-width:400px; margin:auto; font-family:sans-serif;">
+  <div class="contact-container" style="max-width:400px; margin:auto; font-family:sans-serif;">
     <h2>Contactez-nous</h2>
-    <p>Remplissez le formulaire pour nous écrire :</p>
+    <p>Vous avez une question ? N'hésitez pas à nous envoyer un message !</p>
 
-    <div id="success" style="display:none; color:green; margin-bottom:10px;">
-      ✅ Votre mail est prêt à être envoyé !
+    <div id="success-message" style="display:none; color:green; margin-bottom:10px;">
+      ✅ Merci, votre message est prêt à être envoyé depuis votre client mail !
     </div>
-    <div id="error" style="display:none; color:red; margin-bottom:10px;">
-      ❌ Merci de remplir tous les champs.
+    <div id="error-message" style="display:none; color:red; margin-bottom:10px;">
+      ❌ Oups, une erreur est survenue. Veuillez remplir tous les champs.
     </div>
 
-    <form onsubmit="sendMail(); return false;">
-      <input type="text" id="name" placeholder="Votre nom" style="width:100%; margin-bottom:10px; padding:8px;" required>
-      <input type="email" id="email" placeholder="Votre email" style="width:100%; margin-bottom:10px; padding:8px;" required>
-      <textarea id="message" placeholder="Votre message" style="width:100%; margin-bottom:10px; padding:8px;" rows="5" required></textarea>
-      <button type="submit" style="padding:10px 20px;">Envoyer</button>
+    <form onsubmit="return false;">
+      <label for="name">Nom</label><br>
+      <input type="text" id="name" required style="width:100%; padding:8px; margin-bottom:10px;">
+
+      <label for="email">Email</label><br>
+      <input type="email" id="email" required style="width:100%; padding:8px; margin-bottom:10px;">
+
+      <label for="message">Message</label><br>
+      <textarea id="message" rows="5" required style="width:100%; padding:8px; margin-bottom:10px;"></textarea>
+
+      <button onclick="generateMailto()" type="button" style="padding:10px 20px; cursor:pointer;">Envoyer</button>
     </form>
+
+    <!-- Lien mailto invisible, cliqué dynamiquement -->
+    <a id="mailto-link" style="display:none;"></a>
   </div>
 </section>
 
 <script>
-  function sendMail() {
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
+  function generateMailto() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const successMsg = document.getElementById('success-message');
+    const errorMsg = document.getElementById('error-message');
 
     if (!name || !email || !message) {
-      document.getElementById("error").style.display = "block";
-      document.getElementById("success").style.display = "none";
+      errorMsg.style.display = 'block';
+      successMsg.style.display = 'none';
       return;
     }
 
-    const subject = "Contact depuis le site";
-    const body = `Nom : ${name}%0AEmail : ${email}%0A%0A${message}`;
-    const mailto = `mailto:durandcelian.14@icloud.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    const subject = encodeURIComponent("Contact depuis le site");
+    const body = encodeURIComponent(`Nom : ${name}\nEmail : ${email}\n\n${message}`);
+    const mailto = `mailto:durandcelian.14@icloud.com?subject=${subject}&body=${body}`;
 
-    window.location.href = mailto;
+    const link = document.getElementById('mailto-link');
+    link.href = mailto;
+    link.click();
 
-    document.getElementById("success").style.display = "block";
-    document.getElementById("error").style.display = "none";
+    successMsg.style.display = 'block';
+    errorMsg.style.display = 'none';
   }
 </script>
 
